@@ -30,7 +30,7 @@ module.exports = function(app) {
             [username, password], function(err, result) {
 
             if (err) {
-                return next(new Error("username or password does not match"));
+                return next(err);
             }
 
             if (result.rows.length === 0) {

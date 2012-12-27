@@ -19,6 +19,24 @@ module.exports = function(app) {
         });
     });
 
+    app.put('/documents/:id', auth.restrict, function(req, res, next) {
+
+        var title   = req.body.title;
+        var content = req.body.content;
+
+        //TODO data validation
+
+        db.query("UPDATE documents SET title = $1, content = $2 WHERE document_id = $3 and user_id = $4 RETURNING *",
+            [title, content, req.params['id'], req.session.user_id], function(err, result) {
+
+            if (err) {
+                return next(err);
+            }
+
+            res.send(result.rows[0]);
+        });
+    });
+
     app.get('/documents', auth.restrict, function(req, res, next) {
 
             db.query("SELECT * FROM documents WHERE user_id = $1 ORDER BY created_at DESC",
@@ -34,7 +52,7 @@ module.exports = function(app) {
 
             res.render('documents/documents', { documents: result.rows });
         });
-   });
+    });
 
     app.post('/documents', auth.restrict, function(req, res, next) {
 

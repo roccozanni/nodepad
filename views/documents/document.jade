@@ -9,9 +9,17 @@ block after-scripts
 block toolbar-main
     ul.nav
         li
-            a(href="#",onclick="return false") #{title}
+            a#title(href="#",onclick="return false",data-title="#{title}") #{title}
 
 block toolbar
+        ul.nav.pull-right
+            li
+                a
+                    i#status-ok.icon-white.icon-ok
+                    i#status-ko.icon-white.icon-warning-sign(style="display:none")
+
+        span.pull-right &nbsp;
+
         div.pull-right.btn-group(data-toggle="buttons-radio")
             a.toolbar-color.btn(data-color="dark") Dark
             a.toolbar-color.btn.active(data-color="light") Light
