@@ -33,6 +33,23 @@ $(document).ready(function() {
         timer = setTimeout(save, 1000);
     }
 
+    function editTitle() {
+        $("#title-edit").show();
+        $("#title").hide();
+        $("#title-edit input").focus();
+    }
+
+    function submitTitle(e) {
+        e.stopImmediatePropagation();
+        var value = $("#title-edit input").val();
+        $("#title").data("title", value);
+        $("#title").html(value);
+        $("#title-edit").hide();
+        $("#title").show();
+        scheduleSave();
+        return false;
+    }
+
     // Init tooltip
     $("#status-ko").tooltip({title: 'Not synchronized', placement: 'bottom', trigger: 'hover'});
 
@@ -40,6 +57,8 @@ $(document).ready(function() {
     $("#txt").keypress(scheduleSave);
     $("#txt").change(scheduleSave);
     $("#txt").bind('cut paste', scheduleSave);
+    $("#title-edit").submit(submitTitle);
+    $("#title").click(editTitle);
 
     // Change color scheme
     $(".toolbar-color").click(function(e) {

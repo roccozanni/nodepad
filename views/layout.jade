@@ -19,11 +19,10 @@ html(lang="en")
         div.navbar.navbar-inverse.navbar-fixed-top
             div.navbar-inner
                 div.container
-                    a.brand Nodepad
-                    block toolbar-main
-                        ul.nav
-                            li
-                               a(href="/documents") Documents
+                    a.brand(href="/") Nodepad
+                    ul.nav
+                        li
+                           a(href="/documents") Documents
                     block toolbar
 
         block content-main

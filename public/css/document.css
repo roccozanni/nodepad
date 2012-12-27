@@ -16,6 +16,10 @@ body {
     outline: none;
 }
 
+#title {
+    overflow: hidden;
+    white-space: nowrap;
+}
 /* Colors */
 
 .light{
