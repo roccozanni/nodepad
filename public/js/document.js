@@ -62,14 +62,18 @@ $(document).ready(function() {
 
     // Change color scheme
     $(".toolbar-color").click(function(e) {
-        var color = $(e.target).data("color") || $(e.target).parent('a').data("color");
+        var color = $(e.target).data("color");
         $("#txt").removeClass('dark light').addClass(color);
+        $(".toolbar-color").removeClass('active');
+        $(e.target).addClass('active');
     });
 
     // Change font size
     $(".toolbar-font").click(function(e) {
-        var size = $(e.target).data("size") || $(e.target).parent('a').data("size");
+        var size = $(e.target).data("size");
         $("#txt").removeClass('small normal large').addClass(size);
+        $(".toolbar-font").removeClass('active');
+        $(e.target).addClass('active');
     });
 
     // Resize textarea

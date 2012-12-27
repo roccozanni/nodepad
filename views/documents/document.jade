@@ -4,7 +4,9 @@ block title
     | #{title} |
 
 block after-style
+    link(href="http://fonts.googleapis.com/css?family=Oxygen+Mono",rel="stylesheet",type="text/css')
     link(rel="stylesheet", href="/css/document.css")
+
 
 block after-scripts
     script(src="/js/document.js")
@@ -14,8 +16,31 @@ block toolbar
     ul.nav
         li
             form#title-edit.navbar-form(style="display:none")
-                input.span5(type="text",value="#{title}") 
+                input.span5(type="text",value="#{title}")
             a#title.span5(href="#",onclick="return false",data-title="#{title}") #{title}
+
+    div.btn-group.pull-right
+        button.btn.dropdown-toggle(data-toggle="dropdown",href="#")
+            i.icon-font
+            span.caret
+        ul.dropdown-menu
+            li
+                a.toolbar-font(data-size="small") small
+                a.toolbar-font.active(data-size="normal") normal
+                a.toolbar-font(data-size="large") large
+
+    span.pull-right &nbsp;
+
+    div.btn-group.pull-right
+        button.btn.dropdown-toggle(data-toggle="dropdown",href="#")
+            i.icon-adjust
+            span.caret
+        ul.dropdown-menu
+            li
+                a.toolbar-color.active(data-color="light") light
+                a.toolbar-color(data-color="dark") dark
+
+    span.pull-right &nbsp;
 
     ul.nav.pull-right
         li
@@ -23,21 +48,7 @@ block toolbar
                 i#status-ok.icon-white.icon-ok
                 i#status-ko.icon-white.icon-warning-sign(style="display:none")
 
-    span.pull-right &nbsp;
 
-    div.pull-right.btn-group(data-toggle="buttons-radio")
-        a.toolbar-color.btn(data-color="dark") Dark
-        a.toolbar-color.btn.active(data-color="light") Light
-
-    span.pull-right &nbsp;
-
-    div.pull-right.btn-group(data-toggle="buttons-radio")
-        a.toolbar-font.btn(data-size="small")
-            i.icon-zoom-out
-        a.toolbar-font.btn.active(data-size="normal")
-            i.icon-font
-        a.toolbar-font.btn(data-size="large")
-            i.icon-zoom-in
 
 block content-main
     textarea#txt.normal.light(placeholder="some text here...") #{content}

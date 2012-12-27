@@ -9,7 +9,7 @@ body {
     height: 100%;
     border: 0;
     padding: 20px;
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family: 'Oxygen Mono', sans-serif;;
 }
 
 #txt:focus {
@@ -20,6 +20,12 @@ body {
     overflow: hidden;
     white-space: nowrap;
 }
+
+a.active {
+    font-weight: bold !important;
+    text-decoration: underline;
+}
+
 /* Colors */
 
 .light{
@@ -35,13 +41,13 @@ body {
 /* Font */
 
 .small{
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .normal{
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .large{
-    font-size: 22px;
+    font-size: 16px;
 }
