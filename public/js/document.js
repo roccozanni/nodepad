@@ -77,6 +77,6 @@ $(document).ready(function() {
     });
 
     // Resize textarea
-    $(window).resize(resize);
-    resize();
+    //$(window).resize(resize);
+    //resize();
 });

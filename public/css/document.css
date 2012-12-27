@@ -1,7 +1,15 @@
 /* Layout */
 
+html {
+    height: 100%;
+}
+
 body {
     padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 #txt {
@@ -9,7 +17,11 @@ body {
     height: 100%;
     border: 0;
     padding: 20px;
-    font-family: 'Oxygen Mono', sans-serif;;
+    margin: 0px;
+    font-family: 'Oxygen Mono', sans-serif;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 #txt:focus {
