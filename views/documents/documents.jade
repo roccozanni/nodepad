@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+
+    form(action='/documents',method='post')
+        button.btn(type='submit') Create new document
+
+    h3 Your documents
+
+    table.table.table-striped
+        thead
+            tr
+                th Title
+                th Created
+        tbody
+
+            for document in documents
+                tr
+                    td
+                        a(href="/#{document.document_id}") #{document.title}
+                    td #{document.created_from_now}

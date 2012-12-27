@@ -1,0 +1,30 @@
+extends ../layout
+
+block after-style
+    link(rel="stylesheet", href="/css/document.css")
+
+block after-scripts
+    script(src="/js/document.js")
+
+block toolbar-main
+    ul.nav
+        li
+            a(href="#",onclick="return false") #{title}
+
+block toolbar
+        div.pull-right.btn-group(data-toggle="buttons-radio")
+            a.toolbar-color.btn(data-color="dark") Dark
+            a.toolbar-color.btn.active(data-color="light") Light
+
+        span.pull-right &nbsp;
+
+        div.pull-right.btn-group(data-toggle="buttons-radio")
+            a.toolbar-font.btn(data-size="small")
+                i.icon-zoom-out
+            a.toolbar-font.btn.active(data-size="normal")
+                i.icon-font
+            a.toolbar-font.btn(data-size="large")
+                i.icon-zoom-in
+
+block content-main
+    textarea#txt.normal.light(placeholder="some text here...") #{content}

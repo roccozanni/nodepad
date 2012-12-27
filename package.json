@@ -1,0 +1,13 @@
+{
+  "name": "nodepad",
+  "description": "a simple web based notepad based on node.js",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "~3.0.5",
+    "jade": "~0.27.7",
+    "pg": "~0.10.2",
+    "moment": "~1.7.2",
+    "underscore": "~1.4.3"
+  }
+}

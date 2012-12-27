@@ -1,0 +1,38 @@
+!!! 5
+html(lang="en")
+    head
+
+        title
+            block title
+            |  Test
+
+        block meta
+
+        block before-style
+        block style
+            link(rel="stylesheet", href="/css/bootstrap.min.css")
+            link(rel="stylesheet", href="/css/main.css")
+        block after-style
+
+    body
+
+        div.navbar.navbar-inverse.navbar-fixed-top
+            div.navbar-inner
+                div.container
+                    a.brand Nodepad
+                    block toolbar-main
+                        ul.nav
+                            li
+                               a(href="/documents") Documents
+                    block toolbar
+
+        block content-main
+            div.container
+                block content
+
+        block before-scripts
+        block scripts
+            script(src="/js/jquery-1.8.3.min.js")
+            script(src="/js/bootstrap.min.js")
+            script(src="/js/main.js")
+        block after-scripts
