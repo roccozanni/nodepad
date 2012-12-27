@@ -8,6 +8,7 @@ CREATE TABLE users
     CONSTRAINT users_pkey PRIMARY KEY (user_id)
 );
 
+// Username: user, Password: password
 INSERT INTO users (created_at, username, password) VALUES (CURRENT_TIMESTAMP, 'user', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8');
 
 CREATE TABLE documents
