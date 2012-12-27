@@ -36,7 +36,7 @@ require('./controllers/documents.js')(app);
 require('./controllers/error.js')(app);
 
 // Start server
-var port = process.env.LISTEN || 8080;
+var port = process.env.PORT || 8080;
 
 app.listen(port, function() {
     console.log("Listening on " + port);
