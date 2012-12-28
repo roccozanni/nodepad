@@ -47,6 +47,8 @@ module.exports = function(app) {
             }
 
             _.each(result.rows, function(row) {
+                row.url = "/documents/" + row.document_id;
+                row.delete_url = "/documents/" + row.document_id + "/delete";
                 row.created_from_now = moment(row.created_at).fromNow();
             });
 
@@ -68,4 +70,20 @@ module.exports = function(app) {
             res.redirect('/documents/' + result.rows[0].document_id);
         });
     });
+
+    app.post('/documents/:id/delete', auth.restrict, function(req, res, next) {
+
+        var redirect = req.redirect || "/documents";
+
+        db.query("DELETE FROM documents WHERE document_id = $1 AND user_id = $2",
+            [req.params['id'], req.session.user_id], function(err, result) {
+
+            if (err) {
+                return next(err);
+            }
+
+            res.redirect(redirect);
+        });
+    });
+
 };

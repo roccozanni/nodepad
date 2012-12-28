@@ -12,10 +12,14 @@ block content
             tr
                 th Title
                 th Created
+                th Actions
         tbody
 
             for document in documents
                 tr
                     td
-                        a(href="/documents/#{document.document_id}") #{document.title}
+                        a(href="#{document.url}") #{document.title}
                     td #{document.created_from_now}
+                    td
+                        form.document-actions(action="#{document.delete_url}",method="POST")
+                            button.btn.btn-mini.btn-danger(type="submit") Delete
