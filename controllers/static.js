@@ -12,12 +12,6 @@ module.exports = function(app) {
         res.send(404);
     });
 
-    app.get('/test', function(req, res) {
-        db.query("SELECT * FROM documents LIMIT 1", [], function(err, result) {
-            res.send(404);
-        });
-    });
-
     app.get('/login', function(req, res) {
         var submit_url = url.format({ pathname: '/authenticate', query: {redirect: req.query.redirect || '/documents' }});
         res.render('static/login', { submit_url: submit_url });
