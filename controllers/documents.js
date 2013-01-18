@@ -39,8 +39,8 @@ module.exports = function(app) {
 
     app.get('/documents', auth.restrict, function(req, res, next) {
 
-            db.query("SELECT * FROM documents WHERE user_id = $1 ORDER BY created_at DESC",
-                [req.session.user_id], function(err, result) {
+        db.query("SELECT * FROM documents WHERE user_id = $1 ORDER BY created_at DESC",
+            [req.session.user_id], function(err, result) {
 
             if (err) {
                 return next(err);

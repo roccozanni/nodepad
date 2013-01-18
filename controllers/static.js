@@ -1,4 +1,5 @@
 var crypto = require('crypto');
+var url    = require('url');
 var db     = require('../lib/db.js');
 
 module.exports = function(app) {
@@ -12,7 +13,8 @@ module.exports = function(app) {
     });
 
     app.get('/login', function(req, res) {
-        res.render('static/login', {redirect: req.query.redirect || '/documents' });
+        var submit_url = url.format({ pathname: '/authenticate', query: {redirect: req.query.redirect || '/documents' }});
+        res.render('static/login', { submit_url: submit_url });
     });
 
     app.get('/logout', function(req, res) {
@@ -20,9 +22,9 @@ module.exports = function(app) {
         res.redirect("/");
     });
 
-    app.post('/authenticate', function(req, res) {
+    app.post('/authenticate', function(req, res, next) {
 
-        var redirect = req.redirect || "/documents";
+        var redirect = req.query.redirect || "/documents";
         var username = req.body.username;
         var password = crypto.createHash('sha1').update(req.body.password).digest("hex");
 
@@ -34,7 +36,7 @@ module.exports = function(app) {
             }
 
             if (result.rows.length === 0) {
-                return res.redirect('/login?redirect=' + res.redirect);
+                return res.redirect('/login?redirect=' + redirect);
             }
 
             req.session.user_id = result.rows[0].user_id;
