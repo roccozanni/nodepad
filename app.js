@@ -27,7 +27,6 @@ app.configure('development', function() {
 
 // Configuration - production
 app.configure('production', function() {
-    app.use(express.errorHandler());
 });
 
 // Init controllers
